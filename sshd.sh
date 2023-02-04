@@ -11,6 +11,7 @@ if echo $ping_output | grep -q "1 packets transmitted, 1 received"; then
 	sudo ssh-keygen -t rsa -N "" -f serv.key
 	sudo ssh-copy-id $uip
 	ssh root@$uip
+	ssh root@$uip
 	rm -rf values.txt
 else
 	echo "У вас нет доступа в сеть Интернет!"
