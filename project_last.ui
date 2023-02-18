@@ -48,9 +48,9 @@
     <property name="geometry">
      <rect>
       <x>-10</x>
-      <y>70</y>
+      <y>10</y>
       <width>931</width>
-      <height>411</height>
+      <height>471</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -65,30 +65,19 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>122</red>
+          <green>162</green>
+          <blue>200</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Button">
-        <brush brushstyle="RadialGradientPattern">
-         <gradient centralx="0.500000000000000" centraly="0.500000000000000" focalx="0.490000000000000" focaly="0.278000000000000" radius="0.770000000000000" type="RadialGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-          <gradientstop position="0.278607000000000">
-           <color alpha="255">
-            <red>48</red>
-            <green>238</green>
-            <blue>242</blue>
-           </color>
-          </gradientstop>
-          <gradientstop position="1.000000000000000">
-           <color alpha="255">
-            <red>37</red>
-            <green>68</green>
-            <blue>191</blue>
-           </color>
-          </gradientstop>
-         </gradient>
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>53</green>
+          <blue>58</blue>
+         </color>
         </brush>
        </colorrole>
        <colorrole role="Light">
@@ -130,9 +119,9 @@
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>122</red>
+          <green>162</green>
+          <blue>200</blue>
          </color>
         </brush>
        </colorrole>
@@ -148,50 +137,28 @@
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>122</red>
+          <green>162</green>
+          <blue>200</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
-        <brush brushstyle="RadialGradientPattern">
-         <gradient centralx="0.500000000000000" centraly="0.500000000000000" focalx="0.490000000000000" focaly="0.278000000000000" radius="0.770000000000000" type="RadialGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-          <gradientstop position="0.278607000000000">
-           <color alpha="255">
-            <red>48</red>
-            <green>238</green>
-            <blue>242</blue>
-           </color>
-          </gradientstop>
-          <gradientstop position="1.000000000000000">
-           <color alpha="255">
-            <red>37</red>
-            <green>68</green>
-            <blue>191</blue>
-           </color>
-          </gradientstop>
-         </gradient>
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>53</green>
+          <blue>58</blue>
+         </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
-        <brush brushstyle="RadialGradientPattern">
-         <gradient centralx="0.500000000000000" centraly="0.500000000000000" focalx="0.490000000000000" focaly="0.278000000000000" radius="0.770000000000000" type="RadialGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-          <gradientstop position="0.278607000000000">
-           <color alpha="255">
-            <red>48</red>
-            <green>238</green>
-            <blue>242</blue>
-           </color>
-          </gradientstop>
-          <gradientstop position="1.000000000000000">
-           <color alpha="255">
-            <red>37</red>
-            <green>68</green>
-            <blue>191</blue>
-           </color>
-          </gradientstop>
-         </gradient>
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>53</green>
+          <blue>58</blue>
+         </color>
         </brush>
        </colorrole>
        <colorrole role="Shadow">
@@ -235,30 +202,19 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>122</red>
+          <green>162</green>
+          <blue>200</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Button">
-        <brush brushstyle="RadialGradientPattern">
-         <gradient centralx="0.500000000000000" centraly="0.500000000000000" focalx="0.490000000000000" focaly="0.278000000000000" radius="0.770000000000000" type="RadialGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-          <gradientstop position="0.278607000000000">
-           <color alpha="255">
-            <red>48</red>
-            <green>238</green>
-            <blue>242</blue>
-           </color>
-          </gradientstop>
-          <gradientstop position="1.000000000000000">
-           <color alpha="255">
-            <red>37</red>
-            <green>68</green>
-            <blue>191</blue>
-           </color>
-          </gradientstop>
-         </gradient>
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>53</green>
+          <blue>58</blue>
+         </color>
         </brush>
        </colorrole>
        <colorrole role="Light">
@@ -300,9 +256,9 @@
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>122</red>
+          <green>162</green>
+          <blue>200</blue>
          </color>
         </brush>
        </colorrole>
@@ -318,50 +274,28 @@
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>122</red>
+          <green>162</green>
+          <blue>200</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
-        <brush brushstyle="RadialGradientPattern">
-         <gradient centralx="0.500000000000000" centraly="0.500000000000000" focalx="0.490000000000000" focaly="0.278000000000000" radius="0.770000000000000" type="RadialGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-          <gradientstop position="0.278607000000000">
-           <color alpha="255">
-            <red>48</red>
-            <green>238</green>
-            <blue>242</blue>
-           </color>
-          </gradientstop>
-          <gradientstop position="1.000000000000000">
-           <color alpha="255">
-            <red>37</red>
-            <green>68</green>
-            <blue>191</blue>
-           </color>
-          </gradientstop>
-         </gradient>
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>53</green>
+          <blue>58</blue>
+         </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
-        <brush brushstyle="RadialGradientPattern">
-         <gradient centralx="0.500000000000000" centraly="0.500000000000000" focalx="0.490000000000000" focaly="0.278000000000000" radius="0.770000000000000" type="RadialGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-          <gradientstop position="0.278607000000000">
-           <color alpha="255">
-            <red>48</red>
-            <green>238</green>
-            <blue>242</blue>
-           </color>
-          </gradientstop>
-          <gradientstop position="1.000000000000000">
-           <color alpha="255">
-            <red>37</red>
-            <green>68</green>
-            <blue>191</blue>
-           </color>
-          </gradientstop>
-         </gradient>
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>53</green>
+          <blue>58</blue>
+         </color>
         </brush>
        </colorrole>
        <colorrole role="Shadow">
@@ -405,30 +339,19 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>51</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>122</red>
+          <green>162</green>
+          <blue>200</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Button">
-        <brush brushstyle="RadialGradientPattern">
-         <gradient centralx="0.500000000000000" centraly="0.500000000000000" focalx="0.490000000000000" focaly="0.278000000000000" radius="0.770000000000000" type="RadialGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-          <gradientstop position="0.278607000000000">
-           <color alpha="255">
-            <red>48</red>
-            <green>238</green>
-            <blue>242</blue>
-           </color>
-          </gradientstop>
-          <gradientstop position="1.000000000000000">
-           <color alpha="255">
-            <red>37</red>
-            <green>68</green>
-            <blue>191</blue>
-           </color>
-          </gradientstop>
-         </gradient>
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>53</green>
+          <blue>58</blue>
+         </color>
         </brush>
        </colorrole>
        <colorrole role="Light">
@@ -470,9 +393,9 @@
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>51</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>122</red>
+          <green>162</green>
+          <blue>200</blue>
          </color>
         </brush>
        </colorrole>
@@ -488,50 +411,28 @@
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>51</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>122</red>
+          <green>162</green>
+          <blue>200</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
-        <brush brushstyle="RadialGradientPattern">
-         <gradient centralx="0.500000000000000" centraly="0.500000000000000" focalx="0.490000000000000" focaly="0.278000000000000" radius="0.770000000000000" type="RadialGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-          <gradientstop position="0.278607000000000">
-           <color alpha="255">
-            <red>48</red>
-            <green>238</green>
-            <blue>242</blue>
-           </color>
-          </gradientstop>
-          <gradientstop position="1.000000000000000">
-           <color alpha="255">
-            <red>37</red>
-            <green>68</green>
-            <blue>191</blue>
-           </color>
-          </gradientstop>
-         </gradient>
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>53</green>
+          <blue>58</blue>
+         </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
-        <brush brushstyle="RadialGradientPattern">
-         <gradient centralx="0.500000000000000" centraly="0.500000000000000" focalx="0.490000000000000" focaly="0.278000000000000" radius="0.770000000000000" type="RadialGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-          <gradientstop position="0.278607000000000">
-           <color alpha="255">
-            <red>48</red>
-            <green>238</green>
-            <blue>242</blue>
-           </color>
-          </gradientstop>
-          <gradientstop position="1.000000000000000">
-           <color alpha="255">
-            <red>37</red>
-            <green>68</green>
-            <blue>191</blue>
-           </color>
-          </gradientstop>
-         </gradient>
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>53</green>
+          <blue>58</blue>
+         </color>
         </brush>
        </colorrole>
        <colorrole role="Shadow">
@@ -575,10 +476,11 @@
     </property>
     <property name="font">
      <font>
-      <family>Tahoma</family>
-      <pointsize>12</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>Verdana</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
     <property name="cursor">
@@ -594,14 +496,16 @@
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.77, fx:0.49, fy:0.278, stop:0.278607 rgba(48, 238, 242, 255), stop:1 rgba(37, 68, 191, 255));
-border-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-color: rgb(255, 255, 255);
+background-color: rgb(50, 53, 58);
+font: 14pt &quot;Verdana&quot;;
+color: rgb(122, 162, 200);</string>
     </property>
     <property name="tabShape">
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>6</number>
     </property>
     <property name="iconSize">
      <size>
@@ -620,20 +524,36 @@ border-color: rgb(255, 255, 255);</string>
       <string>Главная</string>
      </attribute>
      <widget class="QLabel" name="label_4">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
-        <x>36</x>
-        <y>32</y>
-        <width>721</width>
+        <x>20</x>
+        <y>120</y>
+        <width>841</width>
         <height>251</height>
        </rect>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::TabFocus</enum>
+      </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(0, 0, 0);</string>
+font: 16pt &quot;Verdana&quot;;
+color: rgb(122, 162, 200);</string>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Добро пожаловать в приложение автоматической настройки &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;операционной системы Панелька.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Выбирете интерисующие вас настройки&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;и задайте необходимые параметры.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Добро пожаловать в приложение автоматической &lt;/p&gt;&lt;p&gt;настройки операционной системы Панелька.&lt;/p&gt;&lt;p&gt;Выбирете интерисующие вас настройки и задайте&lt;/p&gt;&lt;p&gt;необходимые параметры.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
       </property>
      </widget>
     </widget>
@@ -665,18 +585,19 @@ color: rgb(0, 0, 0);</string>
      <widget class="QCheckBox" name="DDNS">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>50</x>
         <y>20</y>
-        <width>201</width>
-        <height>21</height>
+        <width>221</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Tahoma</family>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <family>Verdana</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="cursor">
@@ -698,10 +619,10 @@ color: rgb(0, 0, 0);</string>
      <widget class="QWidget" name="gridLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>50</y>
-        <width>762</width>
-        <height>271</height>
+        <x>51</x>
+        <y>70</y>
+        <width>831</width>
+        <height>331</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -709,8 +630,11 @@ color: rgb(0, 0, 0);</string>
         <widget class="QLabel" name="label_14">
          <property name="font">
           <font>
-           <family>Tahoma</family>
+           <family>Verdana</family>
            <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -725,8 +649,11 @@ color: rgb(0, 0, 0);</string>
         <widget class="QLabel" name="label_7">
          <property name="font">
           <font>
-           <family>Tahoma</family>
+           <family>Verdana</family>
            <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -741,8 +668,11 @@ color: rgb(0, 0, 0);</string>
         <widget class="QLabel" name="label_6">
          <property name="font">
           <font>
-           <family>Tahoma</family>
+           <family>Verdana</family>
            <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -757,8 +687,11 @@ color: rgb(0, 0, 0);</string>
         <widget class="QLabel" name="label_9">
          <property name="font">
           <font>
-           <family>Tahoma</family>
+           <family>Verdana</family>
            <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -769,22 +702,15 @@ color: rgb(0, 0, 0);</string>
          </property>
         </widget>
        </item>
-       <item row="6" column="2">
-        <widget class="QLabel" name="label_13">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
        <item row="4" column="1">
         <widget class="QLabel" name="drtg">
          <property name="font">
           <font>
-           <family>Tahoma</family>
+           <family>Verdana</family>
            <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -792,16 +718,6 @@ color: rgb(0, 0, 0);</string>
          </property>
          <property name="text">
           <string>  конец пула для dhcp</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="QLabel" name="label_12">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-         </property>
-         <property name="text">
-          <string/>
          </property>
         </widget>
        </item>
@@ -819,8 +735,11 @@ color: rgb(0, 0, 0);</string>
         <widget class="QLabel" name="label_8">
          <property name="font">
           <font>
-           <family>Tahoma</family>
+           <family>Verdana</family>
            <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -835,8 +754,11 @@ color: rgb(0, 0, 0);</string>
         <widget class="QLabel" name="label_3">
          <property name="font">
           <font>
-           <family>Tahoma</family>
+           <family>Verdana</family>
            <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -851,9 +773,10 @@ color: rgb(0, 0, 0);</string>
         <widget class="QLabel" name="label_5">
          <property name="font">
           <font>
-           <family>Tahoma</family>
+           <family>Verdana</family>
            <pointsize>14</pointsize>
            <weight>50</weight>
+           <italic>false</italic>
            <bold>false</bold>
           </font>
          </property>
@@ -869,8 +792,9 @@ color: rgb(0, 0, 0);</string>
         <widget class="QLineEdit" name="DDNSipnet">
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 11pt &quot;Tahoma&quot;;
-color: rgb(16, 30, 86);</string>
+font: 11pt &quot;Verdana&quot;;
+color: rgb(122, 162, 200);
+</string>
          </property>
         </widget>
        </item>
@@ -878,8 +802,8 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLineEdit" name="DDNSmask">
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 11pt &quot;Tahoma&quot;;
-color: rgb(16, 30, 86);</string>
+font: 11pt &quot;Verdana&quot;;
+color: rgb(122, 162, 200);</string>
          </property>
         </widget>
        </item>
@@ -887,8 +811,8 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLineEdit" name="DDNSserip">
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 11pt &quot;Tahoma&quot;;
-color: rgb(16, 30, 86);</string>
+font: 11pt &quot;Verdana&quot;;
+color: rgb(122, 162, 200);</string>
          </property>
         </widget>
        </item>
@@ -896,8 +820,8 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLineEdit" name="DDNSdoname">
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 11pt &quot;Tahoma&quot;;
-color: rgb(16, 30, 86);</string>
+font: 11pt &quot;Verdana&quot;;
+color: rgb(122, 162, 200);</string>
          </property>
         </widget>
        </item>
@@ -905,8 +829,8 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLineEdit" name="DDNSranstart">
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 11pt &quot;Tahoma&quot;;
-color: rgb(16, 30, 86);</string>
+font: 11pt &quot;Verdana&quot;;
+color: rgb(122, 162, 200);</string>
          </property>
         </widget>
        </item>
@@ -914,8 +838,8 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLineEdit" name="DDNSsername">
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 11pt &quot;Tahoma&quot;;
-color: rgb(16, 30, 86);</string>
+font: 11pt &quot;Verdana&quot;;
+color: rgb(122, 162, 200);</string>
          </property>
         </widget>
        </item>
@@ -923,8 +847,18 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLineEdit" name="DDNSranend">
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 11pt &quot;Tahoma&quot;;
-color: rgb(16, 30, 86);</string>
+font: 11pt &quot;Verdana&quot;;
+color: rgb(122, 162, 200);</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="2">
+        <widget class="QLabel" name="label_13">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+         </property>
+         <property name="text">
+          <string/>
          </property>
         </widget>
        </item>
@@ -933,18 +867,19 @@ color: rgb(16, 30, 86);</string>
      <widget class="QRadioButton" name="DDNSUmol">
       <property name="geometry">
        <rect>
-        <x>240</x>
+        <x>310</x>
         <y>20</y>
-        <width>251</width>
-        <height>21</height>
+        <width>341</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Tahoma</family>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <family>Verdana</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="cursor">
@@ -965,18 +900,19 @@ color: rgb(16, 30, 86);</string>
      <widget class="QCheckBox" name="SSH">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>50</x>
         <y>20</y>
-        <width>311</width>
-        <height>21</height>
+        <width>361</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Tahoma</family>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <family>Verdana</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="cursor">
@@ -998,9 +934,9 @@ color: rgb(16, 30, 86);</string>
      <widget class="QWidget" name="formLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>50</y>
-        <width>691</width>
+        <x>50</x>
+        <y>120</y>
+        <width>751</width>
         <height>141</height>
        </rect>
       </property>
@@ -1009,8 +945,11 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLabel" name="label_11">
          <property name="font">
           <font>
-           <family>Tahoma</family>
+           <family>Verdana</family>
            <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -1025,8 +964,8 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLineEdit" name="SSHuname">
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 11pt &quot;Tahoma&quot;;
-color: rgb(16, 30, 86);</string>
+font: 11pt &quot;Verdana&quot;;
+color: rgb(122, 162, 200);</string>
          </property>
         </widget>
        </item>
@@ -1034,8 +973,11 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLabel" name="label_15">
          <property name="font">
           <font>
-           <family>Tahoma</family>
+           <family>Verdana</family>
            <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -1050,8 +992,8 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLineEdit" name="SSHuip">
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 11pt &quot;Tahoma&quot;;
-color: rgb(16, 30, 86);</string>
+font: 11pt &quot;Verdana&quot;;
+color: rgb(122, 162, 200);</string>
          </property>
         </widget>
        </item>
@@ -1059,8 +1001,11 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLabel" name="label_16">
          <property name="font">
           <font>
-           <family>Tahoma</family>
+           <family>Verdana</family>
            <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -1075,13 +1020,16 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLineEdit" name="SSHpass">
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 11pt &quot;Tahoma&quot;;
-color: rgb(16, 30, 86);</string>
+font: 11pt &quot;Verdana&quot;;
+color: rgb(122, 162, 200);</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
         <widget class="QFrame" name="frame">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -1092,6 +1040,9 @@ color: rgb(16, 30, 86);</string>
        </item>
        <item row="3" column="1">
         <widget class="QFrame" name="frame_2">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -1105,18 +1056,19 @@ color: rgb(16, 30, 86);</string>
      <widget class="QLabel" name="label_17">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>190</y>
-        <width>681</width>
+        <x>50</x>
+        <y>300</y>
+        <width>811</width>
         <height>131</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Tahoma</family>
+        <family>Verdana</family>
         <pointsize>14</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
@@ -1134,18 +1086,19 @@ color: rgb(16, 30, 86);</string>
      <widget class="QCheckBox" name="VPN">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>50</x>
         <y>20</y>
-        <width>241</width>
-        <height>21</height>
+        <width>281</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Tahoma</family>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <family>Verdana</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="cursor">
@@ -1168,8 +1121,8 @@ color: rgb(16, 30, 86);</string>
      <widget class="QWidget" name="formLayoutWidget_2">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>60</y>
+        <x>50</x>
+        <y>120</y>
         <width>701</width>
         <height>171</height>
        </rect>
@@ -1179,8 +1132,11 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLabel" name="label_18">
          <property name="font">
           <font>
-           <family>Tahoma</family>
+           <family>Verdana</family>
            <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -1195,24 +1151,8 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLineEdit" name="VPNuname">
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 11pt &quot;Tahoma&quot;;
-color: rgb(16, 30, 86);</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_19">
-         <property name="font">
-          <font>
-           <family>Tahoma</family>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-         </property>
-         <property name="text">
-          <string>  IP пользователя</string>
+font: 11pt &quot;Verdana&quot;;
+color: rgb(122, 162, 200);</string>
          </property>
         </widget>
        </item>
@@ -1220,8 +1160,8 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLineEdit" name="VPNuip">
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 11pt &quot;Tahoma&quot;;
-color: rgb(16, 30, 86);</string>
+font: 11pt &quot;Verdana&quot;;
+color: rgb(122, 162, 200);</string>
          </property>
         </widget>
        </item>
@@ -1229,8 +1169,11 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLabel" name="label_21">
          <property name="font">
           <font>
-           <family>Tahoma</family>
+           <family>Verdana</family>
            <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -1245,13 +1188,16 @@ color: rgb(16, 30, 86);</string>
         <widget class="QLineEdit" name="VPNip_mask">
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 11pt &quot;Tahoma&quot;;
-color: rgb(16, 30, 86);</string>
+font: 11pt &quot;Verdana&quot;;
+color: rgb(122, 162, 200);</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
         <widget class="QFrame" name="frame_3">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -1262,11 +1208,33 @@ color: rgb(16, 30, 86);</string>
        </item>
        <item row="3" column="1">
         <widget class="QFrame" name="frame_4">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_19">
+         <property name="font">
+          <font>
+           <family>Verdana</family>
+           <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+         </property>
+         <property name="text">
+          <string>  IP пользователя</string>
          </property>
         </widget>
        </item>
@@ -1280,18 +1248,19 @@ color: rgb(16, 30, 86);</string>
      <widget class="QCheckBox" name="FW">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>50</x>
         <y>20</y>
-        <width>241</width>
-        <height>21</height>
+        <width>261</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Tahoma</family>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <family>Verdana</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="cursor">
@@ -1313,8 +1282,64 @@ color: rgb(16, 30, 86);</string>
     </widget>
     <widget class="QWidget" name="Otherp">
      <attribute name="title">
-      <string>ДРУГОЕ</string>
+      <string>Другое</string>
      </attribute>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>60</y>
+        <width>811</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Этот контент откроется после покупки платного дополнения &lt;/p&gt;&lt;p&gt;к нашему приложению&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Удалить</string>
+     </attribute>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>60</y>
+        <width>351</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius:175px;
+background-color: rgb(170, 0, 0);
+color: rgb(255, 255, 255);
+font: 15pt &quot;MS Sans Serif&quot;;</string>
+      </property>
+      <property name="text">
+       <string>НЕ НАЖИМАТЬ</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>60</y>
+        <width>351</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius:175px;
+background-color: rgb(170, 0, 0);
+color: rgb(255, 255, 255);
+font: 15pt &quot;MS Sans Serif&quot;;</string>
+      </property>
+      <property name="text">
+       <string>НЕ НАЖИМАТЬ</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="Line" name="line">
@@ -1327,7 +1352,9 @@ color: rgb(16, 30, 86);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(28, 143, 150);</string>
+     <string notr="true">
+background-color: rgb(7, 40, 255);
+</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -1336,16 +1363,17 @@ color: rgb(16, 30, 86);</string>
    <widget class="QPushButton" name="setting">
     <property name="geometry">
      <rect>
-      <x>610</x>
+      <x>560</x>
       <y>520</y>
-      <width>131</width>
+      <width>161</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(36, 184, 186);
-color: rgb(46, 82, 232);
-font: 75 14pt &quot;Tahoma&quot;;</string>
+     <string notr="true">background-color: rgb(91, 91, 91);
+color: rgb(122, 162, 200);
+font: 16pt &quot;Verdana&quot;;
+</string>
     </property>
     <property name="text">
      <string>Настроить</string>
@@ -1354,16 +1382,17 @@ font: 75 14pt &quot;Tahoma&quot;;</string>
    <widget class="QPushButton" name="cancl">
     <property name="geometry">
      <rect>
-      <x>770</x>
+      <x>750</x>
       <y>520</y>
-      <width>131</width>
+      <width>151</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(36, 184, 186);
-color: rgb(46, 82, 232);
-font: 75 14pt &quot;Tahoma&quot;;</string>
+     <string notr="true">background-color: rgb(91, 91, 91);
+color: rgb(122, 162, 200);
+font: 16pt &quot;Verdana&quot;;
+</string>
     </property>
     <property name="text">
      <string>Отмена</string>
@@ -1379,13 +1408,10 @@ font: 75 14pt &quot;Tahoma&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(44, 139, 176);</string>
+     <string notr="true">background-color: rgb(48, 48, 48);</string>
     </property>
     <property name="text">
      <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>C:/Users/misha/OneDrive/Изображения/пн.jpeg</pixmap>
     </property>
    </widget>
    <zorder>label</zorder>

