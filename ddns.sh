@@ -6,6 +6,14 @@ ping_output=$(ping -c 1 $ping_test)
 ddns (){
 eval $(cat values.txt)
 eval $(cat intface.txt)
+
+sudo ip -4 addr flush dev $nic_int
+sudo ip -4 addr flush dev $nic_lan
+sudo ip link set $nic_int up
+sudo dhclient $nic_int
+sudo ip link set $nic_lan up
+sudo ip addr add $serip/255.255.255.0 dev $nic_lan
+
 echo "\# The primary network interface
 allow-hotplug $nic_int
 iface $nic_int inet dhcp
@@ -16,6 +24,7 @@ netmask $mask
 dbs-servers $serip 8.8.8.8
 auto $nic_lan
 " | sudo tee -a /etc/network/interfaces
+
 sudo systemctl restart networking.service
 sudo apt update
 sudo apt-get install isc-dhcp-server -y

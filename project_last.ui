@@ -505,7 +505,7 @@ color: rgb(122, 162, 200);</string>
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>5</number>
     </property>
     <property name="iconSize">
      <size>
@@ -1302,25 +1302,6 @@ color: rgb(122, 162, 200);</string>
      <attribute name="title">
       <string>Удалить</string>
      </attribute>
-     <widget class="QPushButton" name="pushButton">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>60</y>
-        <width>351</width>
-        <height>351</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-radius:175px;
-background-color: rgb(170, 0, 0);
-color: rgb(255, 255, 255);
-font: 15pt &quot;MS Sans Serif&quot;;</string>
-      </property>
-      <property name="text">
-       <string>НЕ НАЖИМАТЬ</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_2">
       <property name="geometry">
        <rect>
@@ -1338,6 +1319,19 @@ font: 15pt &quot;MS Sans Serif&quot;;</string>
       </property>
       <property name="text">
        <string>НЕ НАЖИМАТЬ</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>70</y>
+        <width>431</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Кнопка для сброса всех настроек</string>
       </property>
      </widget>
     </widget>
@@ -1414,11 +1408,32 @@ font: 16pt &quot;Verdana&quot;;
      <string/>
     </property>
    </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>520</y>
+      <width>481</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 12pt &quot;Verdana&quot;;
+background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);
+color: rgba(255, 255, 255, 0);
+</string>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
    <zorder>label</zorder>
    <zorder>page</zorder>
    <zorder>line</zorder>
    <zorder>setting</zorder>
    <zorder>cancl</zorder>
+   <zorder>progressBar</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

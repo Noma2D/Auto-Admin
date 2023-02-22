@@ -604,13 +604,6 @@ class Ui_MainWindow(object):
         self.page.addTab(self.Otherp, "")
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
-        self.pushButton = QtWidgets.QPushButton(self.tab)
-        self.pushButton.setGeometry(QtCore.QRect(20, 60, 351, 351))
-        self.pushButton.setStyleSheet("border-radius:175px;\n"
-"background-color: rgb(170, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 15pt \"MS Sans Serif\";")
-        self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(self.tab)
         self.pushButton_2.setGeometry(QtCore.QRect(520, 60, 351, 351))
         self.pushButton_2.setStyleSheet("border-radius:175px;\n"
@@ -618,6 +611,9 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);\n"
 "font: 15pt \"MS Sans Serif\";")
         self.pushButton_2.setObjectName("pushButton_2")
+        self.label_12 = QtWidgets.QLabel(self.tab)
+        self.label_12.setGeometry(QtCore.QRect(50, 70, 431, 331))
+        self.label_12.setObjectName("label_12")
         self.page.addTab(self.tab, "")
         self.line = QtWidgets.QFrame(self.centralwidget)
         self.line.setGeometry(QtCore.QRect(-30, 480, 1000, 5))
@@ -646,18 +642,28 @@ class Ui_MainWindow(object):
         self.label.setStyleSheet("background-color: rgb(48, 48, 48);")
         self.label.setText("")
         self.label.setObjectName("label")
+        self.progressBar = QtWidgets.QProgressBar(self.centralwidget)
+        self.progressBar.setGeometry(QtCore.QRect(30, 520, 481, 41))
+        self.progressBar.setStyleSheet("font: 12pt \"Verdana\";\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"border-color: rgba(255, 255, 255, 0);\n"
+"color: rgba(255, 255, 255, 0);\n"
+"")
+        self.progressBar.setProperty("value", 0)
+        self.progressBar.setObjectName("progressBar")
         self.label.raise_()
         self.page.raise_()
         self.line.raise_()
         self.setting.raise_()
         self.cancl.raise_()
+        self.progressBar.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.page.setCurrentIndex(0)
+        self.page.setCurrentIndex(5)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -690,8 +696,8 @@ class Ui_MainWindow(object):
         self.page.setTabText(self.page.indexOf(self.FireWallp), _translate("MainWindow", "FIRE WALL"))
         self.label_2.setText(_translate("MainWindow", "<html><head/><body><p>Этот контент откроется после покупки платного дополнения </p><p>к нашему приложению</p></body></html>"))
         self.page.setTabText(self.page.indexOf(self.Otherp), _translate("MainWindow", "Другое"))
-        self.pushButton.setText(_translate("MainWindow", "НЕ НАЖИМАТЬ"))
         self.pushButton_2.setText(_translate("MainWindow", "НЕ НАЖИМАТЬ"))
+        self.label_12.setText(_translate("MainWindow", "Кнопка для сброса всех настроек"))
         self.page.setTabText(self.page.indexOf(self.tab), _translate("MainWindow", "Удалить"))
         self.setting.setText(_translate("MainWindow", "Настроить"))
         self.cancl.setText(_translate("MainWindow", "Отмена"))
