@@ -1,47 +1,25 @@
-is_ip_greater() {
-  local ip1="$1"
-  local ip2="$2"
-  local subnet_mask="$3"
+local octets_to_compare=0  # Количество октетов для сравнения
 
-  # Проверка валидности маски сети
-  if ! validate_subnet_mask "$subnet_mask"; then
-    echo "Неправильная маска сети: $subnet_mask" >&2
-    return 1
-  fi
+  # Определение количества октетов для сравнения на основе маски сети
+  for mask_octet in "${mask_octets[@]}"; do
+    if [ "$mask_octet" -eq 255 ]; then
+      octets_to_compare=$((octets_to_compare + 1))
+    else
+      break  # Как только встречен октет, отличный от 255, выходим из цикла
+    fi
+  done
 
-  # Разделение IP-адресов и маски сети на октеты
-  IFS='.' read -ra ip1_octets <<< "$ip1"
-  IFS='.' read -ra ip2_octets <<< "$ip2"
-  IFS='.' read -ra mask_octets <<< "$subnet_mask"
-
-  # Проверка, что IP-адреса принадлежат одной и той же подсети
-  for i in {0..3}; do
-    local subnet_mask_octet="${mask_octets[$i]}"
+  # Сравнение октетов IP-адресов
+  for ((i = 0; i < octets_to_compare; i++)); do
     local ip1_octet="${ip1_octets[$i]}"
     local ip2_octet="${ip2_octets[$i]}"
 
-    local subnet_mask_binary="$(echo "obase=2; $subnet_mask_octet" | bc)"
-    local ip1_binary="$(echo "obase=2; $ip1_octet" | bc)"
-    local ip2_binary="$(echo "obase=2; $ip2_octet" | bc)"
-
-    local network_portion_sub_mask="${subnet_mask_binary%%0*}"
-    local network_portion_ip1="${ip1_binary%%0*}"
-    local network_portion_ip2="${ip2_binary%%0*}"
-
-    if [ "$network_portion_sub_mask" != "$network_portion_ip1" ] || [ "$network_portion_sub_mask" != "$network_portion_ip2" ]; then
+    if [ "$ip1_octet" -ne "$ip2_octet" ]; then
       echo "IP-адреса не принадлежат одной подсети" >&2
       return 1
     fi
   done
 
-  # Сравнение числовых значений IP-адресов
-  for i in {0..3}; do
-    if [ "${ip1_octets[$i]}" -gt "${ip2_octets[$i]}" ]; then
-      return 0  # Первый IP больше
-    elif [ "${ip1_octets[$i]}" -lt "${ip2_octets[$i]}" ]; then
-      return 1  # Второй IP больше
-    fi
-  done
-
-  return 2  # IP-адреса идентичны
+  return 0  # Оба IP-адреса находятся в одной подсети
 }
+
