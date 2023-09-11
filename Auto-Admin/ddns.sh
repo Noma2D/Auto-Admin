@@ -3,24 +3,76 @@
 ping_test="8.8.8.8"
 
 ping_output=$(ping -c 1 $ping_test)
+
+ipvalid() {
+  local ip=${1:-NO_IP_PROVIDED}
+  local IFS=.; local -a a=($ip)
+  [[ $ip =~ ^[0-9]+(\.[0-9]+){3}$ ]] || return 1
+  local quad
+  for quad in {0..3}; do
+    [[ "${a[$quad]}" -gt 255 ]] && return 1
+  done
+  return 0
+}
+
 ddns (){
-source /home/prod/PAS-os-main/interfaces.sh
-read -p "Введите желаемый ip-адрес сервера: [$ip_lan] " serip
-case $serip in
-  "")
-    serip=$ip_lan
-    ;;
-  *)
-    ;;
-esac
+source interfaces.sh
+while $true; do
+	read -p "Введите желаемый ip-адрес сервера: [$ip_lan] " serip
+	if ipvalid $serip; then
+		break
+  	elif [[ $serip = "" ]]; then
+		serip=$ip_lan
+		break
+	else
+		echo "Указан неверный IP-адрес"
+    fi
+done
 serend=$(echo $serip | awk -F. '{print $4}')
-read -p "Введите маску ip-адреса сервера: " mask
+serverstart=${serip%.*}.0
+
+while $true; do
+	read -p "Введите маску ip-адреса сервера: " mask
+	if ipvalid $mask; then
+		break
+	else
+		echo "Указан неверный IP-адрес"
+    fi
+done
+
 read -p "Введите имя сервера: " sername
 read -p "Введите имя домена для DNS: " doname
-read -p "Введите сеть ip для работы DHCP (В формате AAA.BBB.CCC.0): " ipnet
-ipnetrev=$(echo $ip_net | awk -F. '{print $4"."$3"."$2"."$1}') 
-read -p "Введите первый ip-адрес для сети DHCP: " ranstart
-reap -p "Введите последний ip-адрес для сети DHCP: " ranend
+
+while $true; do
+	read -p "Введите сеть ip для работы DHCP [$serverstart]: " ipnet
+	if ipvalid $ipnet; then
+		break
+  	elif [[ $ipnet = "" ]]; then
+		ipnet=$serverstart
+		break
+	else
+		echo "Указан неверный IP-адрес"
+    fi
+done
+ipnetrev=$(echo $ipnet | awk -F. '{print $4"."$3"."$2"."$1}') 
+while $true; do
+	read -p "Введите первый ip-адрес для сети DHCP: " ranstart
+	if ipvalid $ranstart; then
+		break
+	else
+		echo "Указан неверный IP-адрес"
+    fi
+done
+while $true; do
+	read -p "Введите последний ip-адрес для сети DHCP: " ranend
+	if ipvalid $ranend; then
+		break
+	else
+		echo "Указан неверный IP-адрес"
+    fi
+done
+
+
 
 
 sudo ip -4 addr flush dev $nic_int

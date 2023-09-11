@@ -1,9 +1,8 @@
 #!/bin/bash
-
+folder=$(pwd)
 sudo mkdir /etc/auto-admin/
-sudo cp Auto-Admin/*.sh /etc/auto-admin
-sudo cp Auto-Admin/Auto-Admin /usr/bin/
-
+sudo cp $folder/Auto-Admin/*.sh /etc/auto-admin
+sudo cp $folder/Auto-Admin/Auto-Admin /usr/bin/
 sudo chmod +x /etc/auto-admin/*
 sudo chmod +x /usr/bin/Auto-Admin
 

@@ -17,21 +17,20 @@ echo "Программа Auto-Admin предназначена для перви
 echo "Версия билда: beta 1.2 от 16.07.23"
 while $true; do
   read -p ">> " command
-  
   case $command in
-    DDNS)
+    DDNS | ddns)
       $folder/ddns.sh
       ;;
-    SSH)
+    SSH | ssh)
       $folder/sshd.sh
       ;;
-    OVPN)
+    OVPN| ovpn)
       $folder/ovpn.sh
       ;;
-    FireWall)
+    FireWall | firewall)
       $folder/fire.sh
       ;;
-    UserCreate)
+    UserCreate | usercreate)
       $folder/usercreate.sh
     ;;
     help)
