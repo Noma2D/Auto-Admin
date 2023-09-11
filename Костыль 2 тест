@@ -1,0 +1,55 @@
+compare_ips() {
+    local ip1="$1"
+    local ip2="$2"
+    local base_ip="$3"
+
+    # Разбиваем IP-адреса на октеты
+    IFS='.' read -ra ip1_octets <<< "$ip1"
+    IFS='.' read -ra ip2_octets <<< "$ip2"
+    IFS='.' read -ra base_ip_octets <<< "$base_ip"
+
+    # Проверяем, что IP-адреса имеют 4 октета
+    if [[ "${#ip1_octets[@]}" -ne 4 || "${#ip2_octets[@]}" -ne 4 || "${#base_ip_octets[@]}" -ne 4 ]]; then
+        echo "Неверный формат IP-адреса"
+        exit 1
+    fi
+
+    local last_nonzero_octet=-1
+
+    # Находим последний октет третьего IP-адреса, который не равен 0
+    for i in {0..3}; do
+        if [[ "${base_ip_octets[$i]}" -ne 0 ]]; then
+            last_nonzero_octet=$i
+        else
+            break
+        fi
+    done
+
+    if [[ "$last_nonzero_octet" -eq -1 ]]; then
+        echo "Третий IP-адрес состоит только из нулей"
+        exit 1
+    fi
+
+    # Проверяем равенство октетов до последнего ненулевого октета третьего IP-адреса
+    for i in {0.."$last_nonzero_octet"}; do
+        if [[ "${ip1_octets[$i]}" -ne "${ip2_octets[$i]}" ]]; then
+            echo "Октеты $i не совпадают между $ip1 и $ip2"
+            exit 1
+        fi
+    done
+
+    # Сравниваем октеты, начиная с последнего ненулевого октета третьего IP-адреса
+    for i in {0..3}; do
+        if [[ "${i}" -ge "$last_nonzero_octet" ]]; then
+            if [[ "${ip1_octets[$i]}" -lt "${ip2_octets[$i]}" ]]; then
+                echo "$ip2 больше чем $ip1"
+                exit 0
+            elif [[ "${ip1_octets[$i]}" -gt "${ip2_octets[$i]}" ]]; then
+                echo "$ip1 больше чем $ip2"
+                exit 0
+            fi
+        fi
+    done
+
+    echo "IP-адреса равны"
+}
