@@ -16,7 +16,7 @@ ipvalid() {
 }
 
 ddns (){
-source interfaces.sh
+source /etc/auto-admin/interfaces.sh
 while $true; do
 	read -p "Введите желаемый ip-адрес сервера: [$ip_lan] " serip
 	if ipvalid $serip; then
