@@ -1,0 +1,47 @@
+
+validate_subnet_mask() {
+  local subnet_mask="$1"
+  local octets=( ${subnet_mask//./ } )  # Разделить маску сети на октеты
+
+  # Проверка, что есть 4 октета
+  if [ "${#octets[@]}" -ne 4 ]; then
+    echo "Маска сети должна содержать 4 октета" >&2
+    return 1
+  fi
+
+  # Проверка каждого октета
+  for octet in "${octets[@]}"; do
+    # Проверка, что октет является целым числом
+    if ! [[ "$octet" =~ ^[0-9]+$ ]]; then
+      echo "Октет '$octet' не является целым числом" >&2
+      return 1
+    fi
+
+    # Проверка, что октет находится в диапазоне от 0 до 255
+    if ((octet < 0 || octet > 255)); then
+      echo "Октет '$octet' находится вне диапазона от 0 до 255" >&2
+      return 1
+    fi
+  done
+
+  # Проверка на правильность маски (последовательность единиц и затем нулей)
+  local binary_mask="$(echo "obase=2; ${octets[0]}" | bc)"
+  for ((i = 1; i < 4; i++)); do
+    binary_mask+="$(echo "obase=2; ${octets[i]}" | bc)"
+  done
+
+  if [[ "$binary_mask" =~ ^1*0*$ ]]; then
+    return 0  # Маска сети валидна
+  else
+    echo "Маска сети '$subnet_mask' неправильная" >&2
+    return 1
+  fi
+}
+
+# Пример использования функции
+subnet_mask="255.255.255.0"
+if validate_subnet_mask "$subnet_mask"; then
+  echo "Маска сети '$subnet_mask' валидна"
+else
+  echo "Маска сети '$subnet_mask' невалидна"
+fi
