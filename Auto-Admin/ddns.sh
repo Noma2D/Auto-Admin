@@ -4,6 +4,99 @@ ping_test="8.8.8.8"
 
 ping_output=$(ping -c 1 $ping_test)
 
+compare_ips() {
+    local ip1="$1"
+    local ip2="$2"
+    local base_ip="$3"
+
+    # Разбиваем IP-адреса на октеты
+    IFS='.' read -ra ip1_octets <<< "$ip1"
+    IFS='.' read -ra ip2_octets <<< "$ip2"
+    IFS='.' read -ra base_ip_octets <<< "$base_ip"
+
+    # Проверяем, что IP-адреса имеют 4 октета
+    if [[ "${#ip1_octets[@]}" -ne 4 || "${#ip2_octets[@]}" -ne 4 || "${#base_ip_octets[@]}" -ne 4 ]]; then
+        echo "Неверный формат IP-адреса"
+        return 0
+    fi
+
+    local last_nonzero_octet=-1
+
+    # Находим последний октет третьего IP-адреса, который не равен 0
+    for i in {0..3}; do
+        if [[ "${base_ip_octets[$i]}" -ne 0 ]]; then
+            last_nonzero_octet=$i
+        else
+            break
+        fi
+    done
+
+    if [[ "$last_nonzero_octet" -eq -1 ]]; then
+        return 0
+    fi
+
+    # Проверяем равенство октетов до последнего ненулевого октета третьего IP-адреса
+    for ((i=0; i < "$last_nonzero_octet"; i++)); do
+        if [[ "${base_ip_octets[$i]}" -ne "${ip1_octets[$i]}" ]] || [[ "${base_ip_octets[$i]}" -ne "${ip2_octets[$i]}" ]]; then
+            echo "Один из IP-адресов из другой подсети"
+            return 0
+        fi
+    done
+
+    # Сравниваем октеты, начиная с последнего ненулевого октета третьего IP-адреса
+    for i in {0..3}; do
+        if [[ "${i}" -ge "$last_nonzero_octet" ]]; then
+            if [[ "${ip1_octets[$i]}" -lt "${ip2_octets[$i]}" ]]; then
+                return 1
+            elif [[ "${ip1_octets[$i]}" -gt "${ip2_octets[$i]}" ]]; then
+                return 2
+	    fi
+        fi
+    done
+    return 0
+}
+
+
+validate_subnet_mask() {
+  local subnet_mask="$1"
+  local octets=( ${subnet_mask//./ } )  # Разделить маску сети на октеты
+
+  # Проверка, что есть 4 октета
+  if [ "${#octets[@]}" -ne 4 ]; then
+    echo "Маска сети должна содержать 4 октета" >&2
+    return 1
+  fi
+
+  # Проверка каждого октета
+  for octet in "${octets[@]}"; do
+    # Проверка, что октет является целым числом
+    if ! [[ "$octet" =~ ^[0-9]+$ ]]; then
+      echo "Октет '$octet' не является целым числом" >&2
+      return 1
+    fi
+
+    # Проверка, что октет находится в диапазоне от 0 до 255
+    if ((octet < 0 || octet > 255)); then
+      echo "Октет '$octet' находится вне диапазона от 0 до 255" >&2
+      return 1
+    fi
+  done
+
+  # Проверка на правильность маски (последовательность единиц и затем нулей)
+  local binary_mask="$(echo "obase=2; ${octets[0]}" | bc)"
+  for ((i = 1; i < 4; i++)); do
+    binary_mask+="$(echo "obase=2; ${octets[i]}" | bc)"
+  done
+
+  if [[ "$binary_mask" =~ ^1*0*$ ]]; then
+    return 0  # Маска сети валидна
+  else
+    echo "Маска сети '$subnet_mask' неправильная" >&2
+    return 1
+  fi
+}
+
+
 ipvalid() {
   local ip=${1:-NO_IP_PROVIDED}
   local IFS=.; local -a a=($ip)
@@ -15,7 +108,7 @@ ipvalid() {
   return 0
 }
 
-ddns (){
+ddns(){
 source /etc/auto-admin/interfaces.sh
 while $true; do
 	read -p "Введите желаемый ip-адрес сервера: [$ip_lan] " serip
@@ -29,20 +122,17 @@ while $true; do
     fi
 done
 serend=$(echo $serip | awk -F. '{print $4}')
-serverstart=${serip%.*}.0
 
 while $true; do
 	read -p "Введите маску ip-адреса сервера: " mask
-	if ipvalid $mask; then
+	if validate_subnet_mask $mask; then
 		break
-	else
-		echo "Указан неверный IP-адрес"
-    fi
+	fi
 done
 
 read -p "Введите имя сервера: " sername
 read -p "Введите имя домена для DNS: " doname
-
+serverstart=${serip%.*}.0
 while $true; do
 	read -p "Введите сеть ip для работы DHCP [$serverstart]: " ipnet
 	if ipvalid $ipnet; then
@@ -52,9 +142,10 @@ while $true; do
 		break
 	else
 		echo "Указан неверный IP-адрес"
-    fi
+        fi
 done
-ipnetrev=$(echo $ipnet | awk -F. '{print $4"."$3"."$2"."$1}') 
+ipnetrev=$(echo $ipnet | awk -F. '{print $4"."$3"."$2"."$1}')
+while $true; do
 while $true; do
 	read -p "Введите первый ip-адрес для сети DHCP: " ranstart
 	if ipvalid $ranstart; then
@@ -71,8 +162,22 @@ while $true; do
 		echo "Указан неверный IP-адрес"
     fi
 done
-
-
+compare_ips $ranstart $ranend $ipnet
+if [ "$?" -eq 1 ]
+then
+	 break
+else
+	echo "Последний IP-адрес меньше первого"
+	read -p "Хотите поменять их местами? " swapgender
+	case $swapgender in
+		Y | Yes | Да | Д)
+			helper=$ranend
+			ranend=$ranstart
+			ranstart=$helper
+			break
+	esac
+fi
+done
 
 
 sudo ip -4 addr flush dev $nic_int
