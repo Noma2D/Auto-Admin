@@ -32,14 +32,22 @@ while $true; do
       ;;
     UserCreate | usercreate)
       $folder/usercreate.sh
-    ;;
+      ;;
+    QuickInstall | quickinstall)
+      $folder/quickinstall.sh
+      ;;
+    Status | status)
+      $folder/status.sh
+      ;;
     help)
       echo "Список доступных команд:
       DDNS - настройка Dynamic DNS в соотвествии с вашими параметрами
       SSH - Настройка SSH-сервера с доступом по ключам
       OVPN - Настройка туннеля OpenVPN
       FireWall - Стандартная настройка FireWall
-      UserCreate - Создание нового пользователя 
+      UserCreate - Создание нового пользователя
+      QuickInstall - Быстрая установка утилит из набора необходимых
+      Status - Вывод статуса всех основных сервисов
       exit - используется для выхода из программы"
       ;;
     exit)

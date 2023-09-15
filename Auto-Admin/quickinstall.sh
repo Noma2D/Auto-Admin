@@ -4,22 +4,22 @@ echo "Добро пожаловать в функцию быстрой уста�
 while $true; do
     read -p ">>>>" name
     case $name in
-        Nginx)
+        Nginx | nginx)
           sudo apt install nginx -y
           ;;
-        MySQL)
+        MySQL | mysql)
           sudo apt install mysql-server -y
           ;;
-        Ansible)
+        Ansible | ansible)
           sudo apt install ansible -y
           ;;
         rsync)
           sudo apt install rsync -y
           ;;
-        Docker)
-          sudo apt install docker docker-compose -y  
+        Docker | docker)
+          sudo apt install docker docker-compose -y
           ;;
-        Zabbix)
+        Zabbix | zabbix)
           sudo apt install zabbix-agent -y
           ;;
         list)
@@ -34,5 +34,8 @@ while $true; do
         exit)
           break
           ;;
+	*)
+	  echo "Неизвестная утилита"
+	  ;;
     esac
 done
