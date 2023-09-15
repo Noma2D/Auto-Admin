@@ -11,7 +11,7 @@ esac
 if id "$username" > /dev/null 2>&1; then
   echo "Данный пользователь уже существует"
 else
-  break 
+  break
 fi
 done
 read -s -p "Введите пароль пользователя $username " password

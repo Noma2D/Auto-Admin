@@ -179,6 +179,9 @@ else
 fi
 done
 
+export "ipint=$serip"
+export "doname=$doname"
+export "servname=$sername"
 
 sudo ip -4 addr flush dev $nic_int
 sudo ip -4 addr flush dev $nic_lan
@@ -187,7 +190,7 @@ sudo dhclient $nic_int
 sudo ip link set $nic_lan up
 sudo ip addr add $serip/255.255.255.0 dev $nic_lan
 
-echo "\# The primary network interface
+echo "# The primary network interface
 allow-hotplug $nic_int
 iface $nic_int inet dhcp
 
@@ -196,7 +199,7 @@ address $serip
 netmask $mask
 dbs-servers $serip 8.8.8.8
 auto $nic_lan
-" | sudo tee -a /etc/network/interfaces
+" | sudo tee -a /etc/network/interfaces >> /dev/null
 
 sudo systemctl restart networking.service
 sudo apt update
@@ -236,7 +239,7 @@ options {
 	listen-on { any; };
 	listen-on-v6 { none; };
 };
-" | 	sudo tee -a /etc/bind/named.conf.options
+" | 	sudo tee -a /etc/bind/named.conf.options >> /dev/null
 
 echo "include \"/etc/bind/ddns.key\";
 zone \"$doname\" {
@@ -252,14 +255,14 @@ zone \"$ipnetrev.in-addr.arpa\" {
 	update-policy{
 		grant ddns-key zonesub ANY;
 	};
-};" | 	sudo tee -a /etc/bind/named.conf.dynamic
+};" | 	sudo tee -a /etc/bind/named.conf.dynamic >> /dev/null
 
 echo "include \"/etc/bind/named.conf.dynamic\";
-include \"/etc/bind/named.conf.options\";" | 	sudo tee -a /etc/bind/named.conf
+include \"/etc/bind/named.conf.options\";" | 	sudo tee -a /etc/bind/named.conf >> /dev/null
 
 sudo touch /etc/bind/ddns.key
 sudo chmod 666 /etc/bind/ddns.key
-sudo ddns-confgen | 	sudo grep -A3 "key \"ddns-key\"" | tee -a /etc/bind/ddns.key
+sudo ddns-confgen | 	sudo grep -A3 "key \"ddns-key\"" | tee -a /etc/bind/ddns.key >> /dev/null
 
 sudo touch /var/lib/bind/db.$doname
 sudo touch /var/lib/bind/db.$ipnetrev.in-addr.arpa
@@ -276,7 +279,7 @@ sudo echo "\$TTL		604800
 ;
 @	IN	NS	$sername.$doname.
 $sername	IN	A	$serip
-" | 	sudo tee -a /var/lib/bind/db.$doname
+" | 	sudo tee -a /var/lib/bind/db.$doname >> /dev/null
 
 sudo echo "\$TTL        604800
 @       IN      SOA     $sername.$doname. root.$doname (
@@ -288,7 +291,7 @@ sudo echo "\$TTL        604800
 ;
 @       IN      NS      $sername.$doname.
 $serend		IN		PTR		$sername.$doname
-" | 	sudo tee -a /var/lib/bind/db.$ipnetrev.in-addr.arpa
+" | 	sudo tee -a /var/lib/bind/db.$ipnetrev.in-addr.arpa >> /dev/null
 
 sudo named-checkconf -z
 
@@ -315,12 +318,16 @@ subnet $ipnet netmask $mask {
 	range $ranstart $ranend;
 	default-lease-time 600;
 	max-lease-time 7200;
-}" | sudo tee -a /etc/dhcp/dhcpd.conf
+}" | sudo tee -a /etc/dhcp/dhcpd.conf >> /dev/null
 
-sudo sed -i 's/INTERFACESv4=""/INTERFACESv4="$nic"/g' /etc/default/isc-dhcp-server
-
-sudo systemctl restart isc-dhcp-server
-sudo systemctl restart bind9
+sudo sed -i 's/INTERFACESv4=""/INTERFACESv4="$nic_lan"/g' /etc/default/isc-dhcp-server
+restarter=0
+while [[ $restarter -lt 5 ]]; do
+	sudo rm -rf /var/run/dhcpd.pid >> /dev/null
+	sudo systemctl restart isc-dhcp-server
+	sudo systemctl restart bind9
+	restarter+=1
+done
 }
 if echo $ping_output | grep -q "1 packets transmitted, 1 received"; then
 	ddns

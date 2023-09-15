@@ -39,12 +39,16 @@ while $true; do
     Status | status)
       $folder/status.sh
       ;;
+    FreeIpa | freeIpa | freeipa)
+      $folder/freeipa.sh
+      ;;
     help)
       echo "Список доступных команд:
       DDNS - настройка Dynamic DNS в соотвествии с вашими параметрами
       SSH - Настройка SSH-сервера с доступом по ключам
       OVPN - Настройка туннеля OpenVPN
       FireWall - Стандартная настройка FireWall
+      FreeIpa - утилита контроллера домена
       UserCreate - Создание нового пользователя
       QuickInstall - Быстрая установка утилит из набора необходимых
       Status - Вывод статуса всех основных сервисов
