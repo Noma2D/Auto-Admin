@@ -1,5 +1,6 @@
 #! /bin/bash
 echo "Запущена настройка FireWall. Для получения информации введите help"
+sudo cp /etc/iptables.rules /etc/iptables.rules.bak
 while $true; do
 read -p ">>> " dad
 case in dad
@@ -54,21 +55,6 @@ case in dad
         ;;
     esac
     ;;
-  help)
-    echo" 
-    close-all - Закрыть все порты (Сбросить настройки)
-    open-in - Открыть приём пакетов на порт
-    open-out - Открыть отправку пакетов с порта
-    close-in - Закрыть приём пакетов на порт
-    close-out - Закрыть отправку пакетов с порта
-    basic - Произвести стандартную настройку с часто используемыми портами
-    exit - выход из утилиты"
-    ;;
-  *)
-    echo "Неизвестная команда, для получения списка команд введите help"
-  exit)
-    break
-    ;;
   basic)
     sudo iptables -F
     echo "Закрыты все порты"
@@ -86,5 +72,33 @@ case in dad
     sudo iptables -A INPUT -j DROP
     echo "Запрет на все не авторизованные входящие соединения"
     ;;
+  show-chages)
+    sudo iptables-save > /etc/iptables.rules.changes
+    diff -u /etc/iptables.rules.changes /etc/iptables.rules.bak
+    ;;
+  save-changes)
+    sudo iptables-save > /etc/iptables.rules
+    ;;
+  restore-changes)
+    sudo cp /etc/iptables.rules.bak /etc/iptables.rules
+    ;;
+  help)
+    echo" 
+    close-all - Закрыть все порты (Сбросить настройки)
+    open-in - Открыть приём пакетов на порт
+    open-out - Открыть отправку пакетов с порта
+    close-in - Закрыть приём пакетов на порт
+    close-out - Закрыть отправку пакетов с порта
+    basic - Произвести стандартную настройку с часто используемыми портами
+    show-changes - Показать различия правил между текущими и предыдущими настройками
+    save-changes - Сохранить изменения настроек iptables
+    restore-changes - Вернуть настройки к тем, что были изначально
+    exit - Выход из утилиты"
+    ;;
+  *)
+    echo "Неизвестная команда, для получения списка команд введите help"
+  exit)
+    break
+    ;;
+esac
 done
-sudo iptables-save > /etc/iptables.rules
