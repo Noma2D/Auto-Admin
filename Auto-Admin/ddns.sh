@@ -179,9 +179,9 @@ else
 fi
 done
 
-export "ipint=$serip"
-export "doname=$doname"
-export "servname=$sername"
+sudo echo "export \"ipint=$serip\"" | sudo tee -a /etc/auto-admin/.ddnsvars >> /dev/null 
+sudo echo "export \"doname=$doname\"" | sudo tee -a /etc/auto-admin/.ddnsvars >> /dev/null 
+sudo echo "export \"servname=$sername\"" | sudo tee -a /etc/auto-admin/.ddnsvars >> /dev/null 
 
 sudo ip -4 addr flush dev $nic_int
 sudo ip -4 addr flush dev $nic_lan
@@ -320,7 +320,7 @@ subnet $ipnet netmask $mask {
 	max-lease-time 7200;
 }" | sudo tee -a /etc/dhcp/dhcpd.conf >> /dev/null
 
-sudo sed -i 's/INTERFACESv4=""/INTERFACESv4="$nic_lan"/g' /etc/default/isc-dhcp-server
+sudo sed -i "s/INTERFACESv4=\"\"/INTERFACESv4=\"$nic_lan\"/g" /etc/default/isc-dhcp-server
 restarter=0
 while [[ $restarter -lt 5 ]]; do
 	sudo rm -rf /var/run/dhcpd.pid >> /dev/null
