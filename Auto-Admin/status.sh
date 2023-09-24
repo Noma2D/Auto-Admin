@@ -1,6 +1,6 @@
 #!/bin/bash
 
-services=(isc-dhcp-server bind9 openvpn nginx mysqld ansible zabbix rsync docker)
+services=(isc-dhcp-server bind9 openvpn nginx mysqld ansible zabbix rsync docker ipa)
 tput sc
 while $true; do
 	echo "Список служб и их состояние:"

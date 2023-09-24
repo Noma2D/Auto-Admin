@@ -85,27 +85,6 @@ case $answ in
   list)
     sudo ufw app list | sed 's/Available applications:/Доступные утилиты:/'
     ;;
-  standart)
-    echo "Стандартные значения портов для популярных утилит:
-    FTP - 21
-    SSH - 22
-    Telnet - 23
-    SMTP - 25
-    DNS -53
-    DHCP - 67, 68
-    HTTP - 80
-    Kerberos - 88
-    NTP - 123
-    NetBIOS - 137
-    SMB-Samba - 139
-    HTTPS - 443
-    Syslogd - 514
-    ldap - 636
-    rsync - 873
-    OpenVPN - 1194
-    MySQL - 3306
-    "
-    ;;
   enable)
     sudo ufw enable | sed 's/Firewall is active and enabled on system startup/Firewall активен и включен в автозапуске системы/'
     ;;
@@ -120,9 +99,7 @@ case $answ in
     basic - Применить базовые настройки и правила
     list - Вывод списка утилит, для которых можно применить настройки FireWall
     status - Вывод статуса FireWall и его настроек
-    enable - Включить Firewall
-    disable - Отключить Firewall
-    standart - Вывод списка всех базовых портов и утилит, работающих на них
+    disable - отключить FireWall
     exit - Выход из утилиты"
     ;;
   exit)

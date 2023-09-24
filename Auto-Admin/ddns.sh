@@ -190,9 +190,16 @@ sudo dhclient $nic_int
 sudo ip link set $nic_lan up
 sudo ip addr add $serip/255.255.255.0 dev $nic_lan
 
-echo "# The primary network interface
+sudo -n > /etc/network/interfaces >> /dev/null
+echo "
+source /etc/network/interfaces.d/*
+# The loopback network interface
+auto lo
+iface lo inet loopback
+# The primary network interface
 allow-hotplug $nic_int
 iface $nic_int inet dhcp
+auto $nic_int
 
 iface $nic_lan inet static
 address $serip

@@ -28,14 +28,46 @@ read -p "Включить поддержку SMB? [Y/N] " smb
 case $smb in
 	Y | Yes | Да | Д | y | yes | д | да)
 		sudo astra-freeipa-server -d $domain -n $servname -ip $ipint -p $passwd --dogtag -s -y
+		while $true; do
+	   		if sudo systemctl is-active ipa &> /dev/null; then
+				echo "Установка FreeIpa завершена успешно"
+				break
+			else
+				read -p "Запустить повторный процесс настройки FreeIpa? " freeinstall
+				case $freeinstall in
+					Y | Yes | Да | Д | y | yes | д | да)
+						sudo astra-freeipa-server -d $domain -n $servname -ip $ipint -p $passwd --dogtag -s -y
+						;;
+					N | No | n | no | Нет | Н | н | нет)
+						break
+						;;
+				esac
+			fi
+		done
 		;;
 	N | No | n | no | Нет | Н | н | нет)
 		sudo astra-freeipa-server -d $domain -n $servname -ip $ipint -p $passwd --dogtag -y
+		while $true; do
+			if sudo systemctl is-active ipa &> /dev/null; then
+				echo "Установка FreeIpa завершена успешно"
+				break
+			else
+				read -p "Запустить повторный процесс настройки FreeIpa? " freeinstall
+				case $freeinstall in
+					Y | Yes | Да | Д | y | yes | д | да)
+						sudo astra-freeipa-server -d $domain -n $servname -ip $ipint -p $passwd --dogtag -y
+						;;
+					N | No | n | no | Нет | Н | н | нет)
+						break
+						;;
+				esac
+			fi
+		done
 		;;
 esac
 }
 
-source /etc/auto-admin/.ddnsvars
+source /etc/auto-admin/.ddnsvars 2> /dev/null
 
 ping_test="8.8.8.8"
 ping_output=$(ping -c 1 $ping_test)
@@ -58,12 +90,44 @@ if echo $ping_output | grep -q "1 packets transmitted, 1 received"; then
 				tput cud1
 				read -p "Включить поддержку SMB? [Y/N] " smb
 				case $smb in
-				       Y | Yes | Да | Д | y | yes | д | да)
-        			        sudo astra-freeipa-server -d $doname -n $servname -ip $ipint -p $passwd --dogtag -s -y
-			                ;;
- 				       N | No | n | no | Нет | Н | н | нет)
-  			        	 	sudo astra-freeipa-server -d $doname -n $servname -ip $ipint -p $passwd --dogtag -y
-        			        ;;
+				    Y | Yes | Да | Д | y | yes | д | да)
+						sudo astra-freeipa-server -d $doname -n $servname -ip $ipint -p $passwd --dogtag -y -s
+						while $true; do
+        			   		if sudo systemctl is-active ipa &> /dev/null; then
+								echo "Установка FreeIpa завершена успешно"
+								break
+							else
+								read -p "Запустить повторный процесс настройки FreeIpa? " freeinstall
+								case $freeinstall in
+									Y | Yes | Да | Д | y | yes | д | да)
+										sudo astra-freeipa-server -d $doname -n $servname -ip $ipint -p $passwd --dogtag -y -s
+										;;
+									N | No | n | no | Нет | Н | н | нет)
+										break
+										;;
+								esac
+							fi
+						done
+        				;;
+ 				    N | No | n | no | Нет | Н | н | нет)
+						sudo astra-freeipa-server -d $doname -n $servname -ip $ipint -p $passwd --dogtag -y
+						while $true; do
+        			   		if sudo systemctl is-active ipa &> /dev/null; then
+								echo "Установка FreeIpa завершена успешно"
+								break
+							else
+								read -p "Запустить повторный процесс настройки FreeIpa? " freeinstall
+								case $freeinstall in
+									Y | Yes | Да | Д | y | yes | д | да)
+										sudo astra-freeipa-server -d $doname -n $servname -ip $ipint -p $passwd --dogtag -y
+										;;
+									N | No | n | no | Нет | Н | н | нет)
+										break
+										;;
+								esac
+							fi
+						done
+        				;;
 				esac
 				;;
 			N | No | n | no | Нет | Н | н | нет)
@@ -77,4 +141,3 @@ if echo $ping_output | grep -q "1 packets transmitted, 1 received"; then
 else
 	echo "У вас нет доступа в интернет!"
 fi
-
