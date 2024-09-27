@@ -1,0 +1,29 @@
+services:
+  alertmanager:
+    command:
+    - --config.file=/etc/alertmanager/alertmanager.yaml
+    container_name: alertmanager
+    image: prom/alertmanager
+    ports:
+    - 9093:9093
+    volumes:
+    - ./alertmanager:/alertmanager/data
+    - ./alertmanager/config:/etc/alertmanager/
+  flask-app:
+    build: .
+    ports:
+    - 5000:5000
+    restart: always
+  grafana:
+    container_name: grafana
+    image: grafana/grafana-enterprise:latest
+    ports:
+    - 3000:3000
+  prometheus:
+    container_name: prometheus
+    image: ubuntu/prometheus:latest
+    ports:
+    - 9090:9090
+    volumes:
+    - ./prometheus/:/etc/prometheus/
+version: '3'

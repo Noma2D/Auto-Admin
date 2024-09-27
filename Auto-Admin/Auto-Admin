@@ -1,6 +1,6 @@
 #!/bin/bash
 folder="/etc/auto-admin"
-$folder/interfaces.sh
+# $folder/interfaces.sh
 echo "
    ▄████████ ███    █▄      ███      ▄██████▄                ▄████████ ████████▄    ▄▄▄▄███▄▄▄▄    ▄█  ███▄▄▄▄   
   ███    ███ ███    ███ ▀█████████▄ ███    ███               ███    ███ ███   ▀███ ▄██▀▀▀███▀▀▀██▄ ███  ███▀▀▀██▄ 
@@ -11,7 +11,7 @@ echo "
   ███    ███ ███    ███     ███     ███    ███               ███    ███ ███   ▄███ ███   ███   ███ ███  ███   ███ 
   ███    █▀  ████████▀     ▄████▀    ▀██████▀                ███    █▀  ████████▀   ▀█   ███   █▀  █▀    ▀█   █▀  
 "
-echo "Над программой работали: Noma2D, Behemoth и Mikhoel"
+echo "Над программой работали: Noma2D, Mikhoel и Denis"
 echo "Программа Auto-Admin предназначена для первичной настройки сервера под управлением Astra Linux. 
 В текущий набор инструментов входят следующие функции: DDNS, SSH-server по ключам, OpenVPN."
 echo "Версия билда: beta v.2.1 от 24.09.23"
@@ -42,6 +42,9 @@ while $true; do
     FreeIpa | freeIpa | freeipa)
       $folder/freeipa.sh
       ;;
+    monitoring | Monitoring)
+      $folder/monitoring-system/start.sh
+      ;;
     help)
       echo "Список доступных команд:
       DDNS - настройка Dynamic DNS в соотвествии с вашими параметрами
@@ -52,6 +55,7 @@ while $true; do
       UserCreate - Создание нового пользователя
       QuickInstall - Быстрая установка утилит из набора необходимых
       Status - Вывод статуса всех основных сервисов
+      Monitoring - Установка системы мониторинга
       exit - используется для выхода из программы"
       ;;
     exit)

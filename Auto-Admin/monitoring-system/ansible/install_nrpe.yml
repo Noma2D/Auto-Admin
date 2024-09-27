@@ -1,0 +1,16 @@
+---
+- name: Install NRPE server and plugins
+  hosts: all
+  become: true  # Run tasks with elevated privileges (sudo)
+
+  tasks:
+    - name: install nrpe
+      apt: name=nagios-nrpe-server state=latest
+    - name : install plugins
+      apt: name=nagios-nrpe-plugin state=latest
+    - name: start nrpe
+      service:
+          name: nagios-nrpe-server
+          state: started
+# your_remote_hosts берется из файла инвентаря
+# RUN: ansible-playbook -i your_inventory_file install_nrpe.yml -kK

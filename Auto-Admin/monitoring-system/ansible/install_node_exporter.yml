@@ -1,0 +1,19 @@
+---
+- name: Install node_exporter
+  hosts: client
+  become: true  # Run tasks with elevated privileges (sudo)
+
+  tasks:
+    - name: Install prometheus-node-exporter
+      apt:
+       name:
+       - prometheus-node-exporter
+       state: latest
+       cache_valid_time: 3600
+
+    - name: start prometheus-node-exporter
+      service:
+          name: prometheus-node-exporter
+          state: started
+# ansible-playbook -i hosts install -kK 
+

@@ -1,0 +1,6 @@
+- name: Pung Servers
+  hosts: client
+  become: yes
+  tasks:
+  - name: Task ping
+    ping:

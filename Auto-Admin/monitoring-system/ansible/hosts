@@ -1,0 +1,3 @@
+[client]
+client01 ansible_host=192.168.10.2 ansible_user=den ansible_ssh_private_key_file=/home/gleb/.ssh/client02
+client02 ansible_host=192.168.244.136 ansible_user=gleb ansible_ssh_private_key_file=/home/gleb/.ssh/client02 
