@@ -1,6 +1,10 @@
 "Версия созданная с использованием текстового UI на основе BASH" 
 
-**Start**
+**Install**
+To install run:
+```install.sh```
 
-Run commond from root catalog of repository:
-```Auto-Admin/Auto-Admin```
+**Start**
+Just run:
+```Auto-Admin```
+in terminal
