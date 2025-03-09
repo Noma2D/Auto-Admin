@@ -33,8 +33,8 @@ if echo $ping_output | grep -q "1 packets transmitted, 1 received"; then
 			sshpass -p $passwd ssh $uname@$uip sudo sed -i "s/\#PubkeyAuthentication\ yes/PubkeyAuthentication\ yes/g" /etc/ssh/sshd_config
 			sshpass -p $passwd ssh $uname@$uip sudo sed -i "s/\#PermitRootLogin\ prohibit-password/PermitRootLogin\ yes/g" /etc/ssh/sshd_config;sudo systemctl restart sshd
 			sshpass -p $passwd ssh $uname@$uip sudo systemctl restart sshd
-			sudo ssh-keygen -t rsa -N "" -f serv.key
-			sudo ssh-copy-id $uip
+			ssh-keygen -t rsa -N "" -f serv.key
+			ssh-copy-id $uip
 			ssh root@$uip
 			ssh root@$uip
 		else

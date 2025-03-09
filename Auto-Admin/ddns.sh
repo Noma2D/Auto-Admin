@@ -137,12 +137,12 @@ while $true; do
 	read -p "Введите сеть ip для работы DHCP [$serverstart]: " ipnet
 	if ipvalid $ipnet; then
 		break
-  	elif [[ $ipnet = "" ]]; then
-		ipnet=$serverstart
+  elif [[ $ipnet = "" ]]; then
+	  ipnet=$serverstart
 		break
 	else
 		echo "Указан неверный IP-адрес"
-        fi
+  fi
 done
 ipnetrev=$(echo $ipnet | awk -F. '{print $4"."$3"."$2"."$1}')
 while $true; do

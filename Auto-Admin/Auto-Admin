@@ -1,6 +1,8 @@
 #!/bin/bash
+printf "\e[H\e[2J"
 folder="/etc/auto-admin"
 # $folder/interfaces.sh
+source "man-list.sh"
 echo "
    ▄████████ ███    █▄      ███      ▄██████▄                ▄████████ ████████▄    ▄▄▄▄███▄▄▄▄    ▄█  ███▄▄▄▄   
   ███    ███ ███    ███ ▀█████████▄ ███    ███               ███    ███ ███   ▀███ ▄██▀▀▀███▀▀▀██▄ ███  ███▀▀▀██▄ 
@@ -11,13 +13,57 @@ echo "
   ███    ███ ███    ███     ███     ███    ███               ███    ███ ███   ▄███ ███   ███   ███ ███  ███   ███ 
   ███    █▀  ████████▀     ▄████▀    ▀██████▀                ███    █▀  ████████▀   ▀█   ███   █▀  █▀    ▀█   █▀  
 "
-echo "Над программой работали: Noma2D, Mikhoel и Denis"
-echo "Программа Auto-Admin предназначена для первичной настройки сервера под управлением Astra Linux. 
-В текущий набор инструментов входят следующие функции: DDNS, SSH-server по ключам, OpenVPN."
-echo "Версия билда: beta v.2.2 от 27.09.24"
+echo "Made by Noma2D."
+echo "Программа Auto-Admin предназначена для установки и настройки серверных функций и утилит на Astra Linux. 
+В текущий набор инструментов входят следующие функции: DDNS, SSH-server по ключам, OpenVPN, FreeIpa, Samba, Nginx и другие. Для получения дополнительной информации напишите help"
 while $true; do
-  read -p ">> " command
+  read -p ">> " command option
   case $command in
+    man)
+      case $option in
+        DDNS|ddns)
+        echo -e $ddns_man
+        ;;
+        OVPN|ovpn)
+        echo -e $ovpn_man
+        ;;
+        SSH|ssh)
+        echo -e $ssh_man
+        ;;
+        Samba|samba)
+        echo -e $samba_man
+        ;;
+        NGINX|Nginx|nginx)
+        echo -e $nginx_man
+        ;;
+        FreeIpa | freeIpa | freeipa)
+        echo -e $freeipa_man
+        ;;
+        Firewall|firewall|ufw|UFW)
+        echo -e $firewall_man
+        ;;
+        help| Help)
+        echo "Доступные утилиты: DDNS, OVPN, SSH, Nginx, FreeIpa, Firewall(ufw), Samba"
+        ;;
+        *)
+        echo "Неизвестное название утилиты, введите man help для получения списка всех утилит для получения справки"
+        ;;
+      esac
+      ;;
+    Samba | samba)
+    case $option in
+      add | remove | install)
+        $folder/samba.sh $option
+        ;;
+      *)
+        read -p ">>> Установить Samba, добавить новую общую папку, удалить существующую? [install/add/remove] " smb
+        $folder/samba.sh $smb
+        ;;
+    esac
+    ;;
+    Nginx | NGINX | nginx)
+      $folder/nginx.sh
+      ;;
     DDNS | ddns)
       $folder/ddns.sh
       ;;
@@ -42,21 +88,24 @@ while $true; do
     FreeIpa | freeIpa | freeipa)
       $folder/freeipa.sh
       ;;
-    monitoring | Monitoring)
-      $folder/monitoring-system/start.sh
-      ;;
     help)
       echo "Список доступных команд:
       DDNS - настройка Dynamic DNS в соотвествии с вашими параметрами
-      SSH - Настройка SSH-сервера с доступом по ключам
-      OVPN - Настройка туннеля OpenVPN
-      FireWall - Стандартная настройка FireWall
+      SSH - настройка SSH-сервера с доступом по ключам
+      OVPN - настройка туннеля OpenVPN
+      FireWall - стандартная настройка FireWall
       FreeIpa - утилита контроллера домена
-      UserCreate - Создание нового пользователя
-      QuickInstall - Быстрая установка утилит из набора необходимых
-      Status - Вывод статуса всех основных сервисов
-      Monitoring - Установка системы мониторинга
+      UserCreate - создание нового пользователя
+      QuickInstall - установка утилит из списка популярных и полезных без их настройки
+      Status - вывод статуса всех основных сервисов
+      Samba - настройка общей сетевой папки
+      Nginx - веб-сервер с функцией поддержки обратного прокси, LEMP-стека
+      clear - очистка окна терминала
+      man [утилита] - более подробное описание для выбранной утилиты. Для получения списка всех утилит напишите man help.
       exit - используется для выхода из программы"
+      ;;
+    clear)
+      printf "\e[H\e[2J"
       ;;
     exit)
       break
