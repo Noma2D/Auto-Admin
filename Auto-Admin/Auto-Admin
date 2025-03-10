@@ -2,7 +2,7 @@
 printf "\e[H\e[2J"
 folder="/etc/auto-admin"
 # $folder/interfaces.sh
-source "man-list.sh"
+source "$folder/man-list.sh"
 echo "
    ▄████████ ███    █▄      ███      ▄██████▄                ▄████████ ████████▄    ▄▄▄▄███▄▄▄▄    ▄█  ███▄▄▄▄   
   ███    ███ ███    ███ ▀█████████▄ ███    ███               ███    ███ ███   ▀███ ▄██▀▀▀███▀▀▀██▄ ███  ███▀▀▀██▄ 
