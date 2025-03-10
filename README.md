@@ -2,7 +2,9 @@
 
 **Install**
 To install run:
-```install.sh```
+```chmod +x install.sh``` and ```install.sh```
+or:
+```dpkg -i Auto-Admin.deb```
 
 **Start**
 Just run:
