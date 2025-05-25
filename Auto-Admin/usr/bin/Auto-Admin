@@ -1,0 +1,118 @@
+#!/bin/bash
+printf "\e[H\e[2J"
+folder="/etc/auto-admin"
+# $folder/interfaces.sh
+source "$folder/man-list.sh"
+echo "
+   ▄████████ ███    █▄      ███      ▄██████▄                ▄████████ ████████▄    ▄▄▄▄███▄▄▄▄    ▄█  ███▄▄▄▄   
+  ███    ███ ███    ███ ▀█████████▄ ███    ███               ███    ███ ███   ▀███ ▄██▀▀▀███▀▀▀██▄ ███  ███▀▀▀██▄ 
+  ███    ███ ███    ███    ▀███▀▀██ ███    ███               ███    ███ ███    ███ ███   ███   ███ ███▌ ███   ███ 
+  ███    ███ ███    ███     ███   ▀ ███    ███   ██████      ███    ███ ███    ███ ███   ███   ███ ███▌ ███   ███ 
+▀███████████ ███    ███     ███     ███    ███    ██████   ▀███████████ ███    ███ ███   ███   ███ ███▌ ███   ███ 
+  ███    ███ ███    ███     ███     ███    ███               ███    ███ ███    ███ ███   ███   ███ ███  ███   ███ 
+  ███    ███ ███    ███     ███     ███    ███               ███    ███ ███   ▄███ ███   ███   ███ ███  ███   ███ 
+  ███    █▀  ████████▀     ▄████▀    ▀██████▀                ███    █▀  ████████▀   ▀█   ███   █▀  █▀    ▀█   █▀  
+"
+echo -e "Made by Noma2D.
+\nПрограмма Auto-Admin предназначена для установки и настройки серверных функций и утилит на Astra Linux. 
+\nВ текущий набор инструментов входят следующие функции: DDNS, SSH-server по ключам, OpenVPN, FreeIpa, 
+Samba, Nginx и другие. Для получения дополнительной информации напишите help"
+while $true; do
+  read -p ">> " command option
+  case $command in
+    man)
+      case $option in
+        DDNS|ddns)
+        echo -e $ddns_man
+        ;;
+        OVPN|ovpn)
+        echo -e $ovpn_man
+        ;;
+        SSH|ssh)
+        echo -e $ssh_man
+        ;;
+        Samba|samba)
+        echo -e $samba_man
+        ;;
+        NGINX|Nginx|nginx)
+        echo -e $nginx_man
+        ;;
+        FreeIpa | freeIpa | freeipa)
+        echo -e $freeipa_man
+        ;;
+        Firewall|firewall|ufw|UFW)
+        echo -e $firewall_man
+        ;;
+        help| Help)
+        echo "Доступные утилиты: DDNS, OVPN, SSH, Nginx, FreeIpa, Firewall(ufw), Samba"
+        ;;
+        *)
+        echo "Неизвестное название утилиты, введите man help для получения списка всех утилит для получения справки"
+        ;;
+      esac
+      ;;
+    Samba | samba)
+      case $option in
+      add | remove | install)
+        $folder/samba.sh $option
+        ;;
+      *)
+        read -p ">>> Установить Samba, добавить новую общую папку, удалить существующую? [install/add/remove] " smb
+        $folder/samba.sh $smb
+        ;;
+      esac
+      ;;
+    Nginx | NGINX | nginx)
+      $folder/nginx.sh
+      ;;
+    DDNS | ddns)
+      $folder/ddns.sh
+      ;;
+    SSH | ssh)
+      $folder/sshd.sh
+      ;;
+    OVPN| ovpn)
+      $folder/ovpn.sh
+      ;;
+    FireWall | firewall)
+      $folder/fire.sh
+      ;;
+    UserCreate | usercreate)
+      $folder/usercreate.sh
+      ;;
+    QuickInstall | quickinstall)
+      $folder/quickinstall.sh
+      ;;
+    Status | status)
+      $folder/status.sh
+      ;;
+    FreeIpa | freeIpa | freeipa)
+      $folder/freeipa.sh
+      ;;
+    help)
+      echo "Список доступных команд:
+      DDNS - настройка Dynamic DNS в соотвествии с вашими параметрами
+      SSH - настройка SSH-сервера с доступом по ключам
+      OVPN - настройка туннеля OpenVPN
+      FireWall - стандартная настройка FireWall
+      FreeIpa - утилита контроллера домена
+      UserCreate - создание нового пользователя
+      QuickInstall - установка утилит из списка популярных и полезных без их настройки
+      Status - вывод статуса всех основных сервисов
+      Samba - настройка общей сетевой папки
+      Nginx - веб-сервер с функцией поддержки обратного прокси, LEMP-стека
+      clear - очистка окна терминала
+      man [утилита] - более подробное описание для выбранной утилиты. Для получения списка всех утилит напишите man help.
+      exit - используется для выхода из программы"
+      ;;
+    clear)
+      printf "\e[H\e[2J"
+      ;;
+    exit)
+      break
+      ;;
+    *)
+      echo "Неизвестная команда. Для получения справки напишите help"
+      ;;
+  esac
+done

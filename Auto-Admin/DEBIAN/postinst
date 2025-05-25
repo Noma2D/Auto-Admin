@@ -1,0 +1,4 @@
+#! /bin/bash
+set -e
+chmod +x /usr/bin/Auto-Admin
+chmod +x /etc/auto-admin/*

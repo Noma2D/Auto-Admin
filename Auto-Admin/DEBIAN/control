@@ -1,0 +1,9 @@
+Package: Auto-Admin
+Version: 1.0
+Section: utils
+Priority: optional
+Architecture: amd64
+Depends: bash
+Maintainer: Noma2D Noma3D@ya.ru
+Description: Программа Auto-Admin предназначена для установки и настройки серверных функций и утилит на Astra Linux.
+ В текущий набор инструментов входят следующие функции: DDNS, SSH-server по ключам, OpenVPN, FreeIpa, Samba, Nginx и другие.
