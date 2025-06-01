@@ -103,12 +103,10 @@ ipvalid() {
 }
 
 ddns(){
-# source /etc/auto-admin/interfaces.sh
-
 echo "Доступные сетевые интерфейсы:"
 ip -4 -o addr show | awk '{print $2, "->", $4}'
 while $true; do
-  read -p "Выберите сетевой интерфейс на котором будет работать DDNS: " $nic_lan
+  read -p "Выберите сетевой интерфейс на котором будет работать DDNS: " nic_lan
   if ip link show "$nic_lan" &>/dev/null; then
     break
   else
@@ -188,37 +186,6 @@ else
 fi
 done
 
-:' sudo echo "export \"ipint=$serip\"" | sudo tee -a /etc/auto-admin/.ddnsvars >> /dev/null 
-sudo echo "export \"doname=$doname\"" | sudo tee -a /etc/auto-admin/.ddnsvars >> /dev/null 
-sudo echo "export \"servname=$sername\"" | sudo tee -a /etc/auto-admin/.ddnsvars >> /dev/null 
-
-sudo cp /etc/network/interfaces /etc/network/interfaces.bak
-sudo ip -4 addr flush dev $nic_int
-sudo ip -4 addr flush dev $nic_lan
-sudo ip link set $nic_int up
-sudo dhclient $nic_int
-sudo ip link set $nic_lan up
-sudo ip addr add $serip/255.255.255.0 dev $nic_lan 
-
-sudo -n > /etc/network/interfaces >> /dev/null
- echo " 
-source /etc/network/interfaces.d/*
-# The loopback network interface
-auto lo
-iface lo inet loopback
-# The primary network interface
-allow-hotplug $nic_int
-iface $nic_int inet dhcp
-auto $nic_int
-
-iface $nic_lan inet static
-address $serip
-netmask $mask
-dbs-servers $serip 8.8.8.8
-auto $nic_lan
-" | sudo tee -a /etc/network/interfaces >> /dev/null '
-
-sudo systemctl restart networking.service
 sudo apt update
 sudo apt-get install isc-dhcp-server -y
 sudo apt-get install bind9 bind9utils bind9-doc dnsutils -y
